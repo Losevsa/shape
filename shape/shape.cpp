@@ -19,7 +19,10 @@ public:
 class Circle : virtual public Shape
 {
 public:
-	Circle(){}
+	Circle(double radius)
+    {
+        this->radius = radius;
+    }
 
     virtual void squareCount()
     {
@@ -31,11 +34,14 @@ public:
     }
     virtual double square()
     {
-
+        return 0;
     }
     virtual BoundingBoxDimensions dimensions()
     {
-
+        BoundingBoxDimensions a;
+        a.height = 0;
+        a.width = 0;
+        return a;
     }
     virtual std::string type()
     {
@@ -43,15 +49,14 @@ public:
     }
 
 private:
-    double a;
-    double b;
-    double c;
+    double radius = 0;
 };
 
 
 int main()
 {
-
+    Shape* circle = new Circle(23);
+    circle->printParams(circle);
     std::cout << "Hello World!\n";
 }
 
